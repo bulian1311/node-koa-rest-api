@@ -2,9 +2,10 @@
   "name": "magmer-api",
   "version": "1.0.0",
   "description": "Restfull api for magmer project",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js",
+    "prod": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,14 @@
   "bugs": {
     "url": "https://gitlab.com/bulian1311/magmer-api/issues"
   },
-  "homepage": "https://gitlab.com/bulian1311/magmer-api#readme"
+  "homepage": "https://gitlab.com/bulian1311/magmer-api#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  },
+  "dependencies": {
+    "koa": "^2.6.1",
+    "koa-json": "^2.0.2",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.3.8"
+  }
 }
