@@ -1,0 +1,24 @@
+{
+  "name": "magmer-api",
+  "version": "1.0.0",
+  "description": "Restfull api for magmer project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/bulian1311/magmer-api.git"
+  },
+  "keywords": [
+    "magmer",
+    "api",
+    "rest"
+  ],
+  "author": "Nikolay Kachanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/bulian1311/magmer-api/issues"
+  },
+  "homepage": "https://gitlab.com/bulian1311/magmer-api#readme"
+}
