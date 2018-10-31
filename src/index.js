@@ -1,7 +1,21 @@
 const Koa = require('koa');
 const json = require('koa-json');
+const mongoose = require('mongoose');
 const config = require('./config');
 const router = require('./router');
+
+// DB connect
+(async () => {
+  try {
+    await mongoose.connect(
+      config.mongo_db,
+      { useNewUrlParser: true }
+    );
+    console.log('Mongo conect.');
+  } catch (err) {
+    console.error(err.message);
+  }
+})();
 
 const app = new Koa();
 
