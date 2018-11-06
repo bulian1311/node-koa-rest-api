@@ -26,6 +26,7 @@
     "nodemon": "^1.18.5"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.2",
     "koa": "^2.6.1",
     "koa-bodyparser": "^4.2.1",
     "koa-json": "^2.0.2",
