@@ -8,12 +8,14 @@ class Home {
             endpoint: '/product',
             method: 'GET',
             description: 'Получить список всех продуктов.',
+            jwt: false,
             parameters: 'none'
           },
           {
             endpoint: '/product',
             method: 'POST',
             description: 'Добавить новый продукт в базу данных',
+            jwt: true,
             parameters: {
               title: 'string',
               description: 'string',
@@ -26,6 +28,7 @@ class Home {
             endpoint: '/product/{id}',
             method: 'GET',
             description: 'Получить продукт из базы данных по иденьтификатору.',
+            jwt: false,
             parameters: 'none'
           },
           {
@@ -33,6 +36,7 @@ class Home {
             method: 'PUT',
             description:
               'Отредактировать продукт в базе данных по иденьтификатору.',
+            jwt: true,
             parameters: {
               title: 'string',
               description: 'string',
@@ -45,6 +49,7 @@ class Home {
             endpoint: '/product/{id}',
             method: 'DELETE',
             description: 'Удалить продукт из базы данных.',
+            jwt: true,
             parameters: 'none'
           }
         ]
