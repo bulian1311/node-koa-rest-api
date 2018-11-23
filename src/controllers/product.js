@@ -12,7 +12,7 @@ class ProductsController {
       ctx.body = products;
     } catch (err) {
       console.error(err.message);
-      ctx.body = { msg: 'error' };
+      ctx.body = { msg: err.message };
     }
   }
 
@@ -29,7 +29,7 @@ class ProductsController {
       ctx.body = product;
     } catch (err) {
       console.error(err.message);
-      ctx.body = { msg: 'error' };
+      ctx.body = { msg: err.message };
     }
   }
 
@@ -46,7 +46,7 @@ class ProductsController {
       ctx.body = { msg: 'success' };
     } catch (err) {
       console.error(err.message);
-      ctx.body = { msg: 'error' };
+      ctx.body = { msg: err.message };
     }
   }
 
@@ -63,7 +63,7 @@ class ProductsController {
       ctx.body = { msg: 'success' };
     } catch (err) {
       console.error(err.message);
-      ctx.body = { msg: 'error' };
+      ctx.body = { msg: err.message };
     }
   }
 
@@ -80,7 +80,7 @@ class ProductsController {
       ctx.body = { msg: 'success' };
     } catch (err) {
       console.error(err.message);
-      ctx.body = { msg: 'error' };
+      ctx.body = { msg: err.message };
     }
   }
 }

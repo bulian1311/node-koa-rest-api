@@ -1,22 +1,29 @@
 const Router = require('koa-router');
-const homeController = require('./controllers/home');
-const productController = require('./controllers/product');
 const jwt = require('koa-jwt');
 
+const HomeController = require('./controllers/home');
+const ProductController = require('./controllers/product');
+const TagController = require('./controllers/tag');
+const ProducerController = require('./controllers/producer');
 const config = require('./config');
 
 const router = new Router();
 
 // Public routes
-router.get('/', homeController.home);
-router.get('/product', productController.getAll);
-router.get('/product/:id', productController.getOne);
+router.get('/', HomeController.home);
+router.get('/product', ProductController.getAll);
+router.get('/product/:id', ProductController.getOne);
 
+router.get('/tag', TagController.getAll);
+
+router.get('/producer', ProducerController.getAll);
+
+// Jwt protection
 router.use(jwt({ secret: config.secret }));
 
 // Protected routes
-router.post('/product', productController.create);
-router.put('/product/:id', productController.update);
-router.delete('/product/:id', productController.delete);
+router.post('/product', ProductController.create);
+router.put('/product/:id', ProductController.update);
+router.delete('/product/:id', ProductController.delete);
 
 module.exports = router;
