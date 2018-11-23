@@ -19,6 +19,7 @@ router.get('/tag', TagController.getAll);
 router.get('/tag/:id', TagController.getOne);
 
 router.get('/producer', ProducerController.getAll);
+router.get('/producer/:id', ProducerController.getOne);
 
 // Jwt protection
 router.use(jwt({ secret: config.secret }));
@@ -31,5 +32,9 @@ router.delete('/product/:id', ProductController.delete);
 router.post('/tag', TagController.create);
 router.put('/tag/:id', TagController.update);
 router.delete('/tag/:id', TagController.delete);
+
+router.post('/producer', ProducerController.create);
+router.put('/producer/:id', ProducerController.update);
+router.delete('/producer/:id', ProducerController.delete);
 
 module.exports = router;

@@ -60,6 +60,10 @@ class TagController {
     }
   }
 
+  /**
+   * Удалить тег из базы данных по идентификатору.
+   * @param {*} ctx
+   */
   async delete(ctx) {
     const { id } = ctx.params;
     try {
