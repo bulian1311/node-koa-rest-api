@@ -10,7 +10,11 @@ const productSchema = Schema({
 
   url: { type: String, required: true },
 
-  images: [{ url: String }]
+  images: [{ url: { type: String, unique: true }, alt: String }],
+
+  producer: { type: Schema.Types.ObjectId, ref: 'producer' },
+
+  tags: [{ type: Schema.Types.ObjectId, ref: 'tag' }]
 });
 
 module.exports = mongoose.model('product', productSchema);
