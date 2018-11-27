@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const productSchema = Schema({
-  title: { type: String, required: true },
+  title: { type: String },
 
-  description: { type: String, required: true },
+  description: { type: String },
 
-  price: { type: String, required: true },
+  price: { type: String },
 
-  url: { type: String, required: true },
+  url: { type: String },
 
   images: [{ url: { type: String, unique: true }, alt: String }],
 
-  producer: { type: Schema.Types.ObjectId, ref: 'producer' },
+  producer: { type: String },
 
-  tags: [{ type: Schema.Types.ObjectId, ref: 'tag' }]
+  tags: [{ type: String }]
 });
 
 module.exports = mongoose.model('product', productSchema);
