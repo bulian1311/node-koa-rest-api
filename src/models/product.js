@@ -10,11 +10,11 @@ const productSchema = Schema({
 
   url: { type: String },
 
-  images: [{ url: { type: String, unique: true }, alt: String }],
+  images: [{ url: { type: String }, alt: String }],
 
-  producer: { type: String },
+  producer: { url: String },
 
-  tags: [{ type: String }]
+  tags: [{ title: String }]
 });
 
 module.exports = mongoose.model('product', productSchema);

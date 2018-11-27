@@ -80,9 +80,8 @@ class TagController {
    * @param {*} ctx
    */
   async createMany(ctx) {
-    const { tags } = ctx.body;
     try {
-      Tag.create(tags);
+      Tag.create(ctx.request.body);
       ctx.body = { msg: 'success' };
     } catch (err) {
       console.error(err.message);

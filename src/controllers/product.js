@@ -89,12 +89,11 @@ class ProductsController {
    * @param {*} ctx
    */
   async createMany(ctx) {
-    const { products } = ctx.body;
     try {
-      Product.create(products);
+      await Product.create(ctx.request.body);
       ctx.body = { msg: 'success' };
     } catch (err) {
-      console.error(err.message);
+      console.error('qqq...' + err.message);
       ctx.body = { msg: err.message };
     }
   }

@@ -26,7 +26,7 @@ router.use(jwt({ secret: config.secret }));
 
 // Protected routes
 router.post('/product', ProductController.create);
-router.post('product/list', ProductController.createMany);
+router.post('/product/list', ProductController.createMany);
 router.put('/product/:id', ProductController.update);
 router.delete('/product/:id', ProductController.delete);
 
