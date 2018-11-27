@@ -74,6 +74,21 @@ class TagController {
       ctx.throw(400, err.message);
     }
   }
+
+  /**
+   * Добавить список тегов в базу данных.
+   * @param {*} ctx
+   */
+  async createMany(ctx) {
+    const { tags } = ctx.body;
+    try {
+      Tag.create(tags);
+      ctx.body = { msg: 'success' };
+    } catch (err) {
+      console.error(err.message);
+      ctx.body = { msg: err.message };
+    }
+  }
 }
 
 module.exports = new TagController();

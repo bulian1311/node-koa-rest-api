@@ -83,6 +83,21 @@ class ProductsController {
       ctx.body = { msg: err.message };
     }
   }
+
+  /**
+   * Добавить список продуктов в базу данных.
+   * @param {*} ctx
+   */
+  async createMany(ctx) {
+    const { products } = ctx.body;
+    try {
+      Product.create(products);
+      ctx.body = { msg: 'success' };
+    } catch (err) {
+      console.error(err.message);
+      ctx.body = { msg: err.message };
+    }
+  }
 }
 
 module.exports = new ProductsController();

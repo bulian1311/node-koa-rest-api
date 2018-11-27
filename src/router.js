@@ -12,13 +12,13 @@ const router = new Router();
 // Public routes
 router.get('/', HomeController.home);
 
-router.get('/product', ProductController.getAll);
+router.get('/product/list', ProductController.getAll);
 router.get('/product/:id', ProductController.getOne);
 
-router.get('/tag', TagController.getAll);
+router.get('/tag/list', TagController.getAll);
 router.get('/tag/:id', TagController.getOne);
 
-router.get('/producer', ProducerController.getAll);
+router.get('/producer/list', ProducerController.getAll);
 router.get('/producer/:id', ProducerController.getOne);
 
 // Jwt protection
@@ -26,10 +26,12 @@ router.use(jwt({ secret: config.secret }));
 
 // Protected routes
 router.post('/product', ProductController.create);
+router.post('product/list', ProductController.createMany);
 router.put('/product/:id', ProductController.update);
 router.delete('/product/:id', ProductController.delete);
 
 router.post('/tag', TagController.create);
+router.post('/tag/list', TagController.createMany);
 router.put('/tag/:id', TagController.update);
 router.delete('/tag/:id', TagController.delete);
 
