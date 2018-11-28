@@ -13,7 +13,7 @@ const router = require('./router');
   try {
     await mongoose.connect(
       config.mongo_db,
-      { useNewUrlParser: true }
+      { useNewUrlParser: true, useCreateIndex: true }
     );
     console.log('Mongo conect.');
   } catch (err) {

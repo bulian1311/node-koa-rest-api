@@ -35,9 +35,12 @@ class TagController {
    * @param {*} ctx
    */
   async create(ctx) {
-    const tag = Tag.findOne(ctx.request.body);
+    let tag = await Tag.findOne(ctx.request.body);
+    console.log(tag);
+
     if (tag) {
       ctx.body = { msg: 'tag alredy exist' };
+      return;
     }
 
     tag = new Tag(ctx.request.body);
