@@ -43,7 +43,7 @@ class ProductsController {
 
     try {
       await product.save();
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'product created success' };
     } catch (err) {
       console.error(err.message);
       ctx.body = { msg: err.message };
@@ -60,7 +60,7 @@ class ProductsController {
 
     try {
       await Product.findByIdAndUpdate(id, ctx.request.body);
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'product updated success' };
     } catch (err) {
       console.error(err.message);
       ctx.body = { msg: err.message };
@@ -77,7 +77,7 @@ class ProductsController {
 
     try {
       await Product.findByIdAndRemove(id);
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'product deleted success' };
     } catch (err) {
       console.error(err.message);
       ctx.body = { msg: err.message };
@@ -91,9 +91,9 @@ class ProductsController {
   async createMany(ctx) {
     try {
       await Product.create(ctx.request.body);
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'products created success' };
     } catch (err) {
-      console.error('qqq...' + err.message);
+      console.error(+err.message);
       ctx.body = { msg: err.message };
     }
   }

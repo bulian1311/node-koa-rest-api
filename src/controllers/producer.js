@@ -38,7 +38,7 @@ class ProducerController {
     const producer = new Producer(ctx.request.body);
     try {
       await producer.save();
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'producer created success' };
     } catch (err) {
       console.error(err.message);
       ctx.throw(400, err.message);
@@ -53,7 +53,7 @@ class ProducerController {
     const { id } = ctx.params;
     try {
       await Producer.findByIdAndUpdate(id, ctx.request.body);
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'producer updated success' };
     } catch (err) {
       console.error(err.message);
       ctx.throw(400, err.message);
@@ -68,7 +68,7 @@ class ProducerController {
     const { id } = ctx.params;
     try {
       await Producer.findByIdAndRemove(id);
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'producer deleted success' };
     } catch (err) {
       console.error(err.message);
       ctx.throw(400, err.message);

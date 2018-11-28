@@ -35,10 +35,16 @@ class TagController {
    * @param {*} ctx
    */
   async create(ctx) {
-    const tag = new Tag(ctx.request.body);
+    const tag = Tag.findOne(ctx.request.body);
+    if (tag) {
+      ctx.body = { msg: 'tag alredy exist' };
+    }
+
+    tag = new Tag(ctx.request.body);
+
     try {
       await tag.save();
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'tag created success' };
     } catch (err) {
       console.error(err.message);
       ctx.throw(400, err.message);
@@ -53,7 +59,7 @@ class TagController {
     const { id } = ctx.params;
     try {
       await Tag.findByIdAndUpdate(id, ctx.request.body);
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'tag updated success' };
     } catch (err) {
       console.error(err.message);
       ctx.throw(400, err.message);
@@ -68,7 +74,7 @@ class TagController {
     const { id } = ctx.params;
     try {
       await Tag.findByIdAndRemove(id);
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'tag deleted success' };
     } catch (err) {
       console.error(err.message);
       ctx.throw(400, err.message);
@@ -82,7 +88,7 @@ class TagController {
   async createMany(ctx) {
     try {
       Tag.create(ctx.request.body);
-      ctx.body = { msg: 'success' };
+      ctx.body = { msg: 'tags created success' };
     } catch (err) {
       console.error(err.message);
       ctx.body = { msg: err.message };
