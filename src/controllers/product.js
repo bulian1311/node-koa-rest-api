@@ -23,7 +23,7 @@ class ProductsController {
     const { count } = ctx.params;
 
     try {
-      const products = await Product.find(id).limit(parseInt(count));
+      const products = await Product.find().limit(parseInt(count));
       ctx.body = products;
     } catch (err) {
       console.error(err.message);
