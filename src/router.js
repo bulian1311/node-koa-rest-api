@@ -13,6 +13,7 @@ const router = new Router();
 router.get('/', HomeController.home);
 
 router.get('/product/list', ProductController.getAll);
+router.get('/product/list/:count', ProductController.getSome);
 router.get('/product/:id', ProductController.getOne);
 
 router.get('/tag/list', TagController.getAll);

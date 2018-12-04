@@ -4,9 +4,8 @@ class ProductsController {
   /**
    * Получить весь список продуктов из базы.
    * @param {*} ctx
-   * @param {*} next
    */
-  async getAll(ctx, next) {
+  async getAll(ctx) {
     try {
       const products = await Product.find();
       ctx.body = products;
@@ -17,11 +16,26 @@ class ProductsController {
   }
 
   /**
+   * Получить необходимое число продуктов
+   * @param {*} ctx
+   */
+  async getSome(ctx) {
+    const { count } = ctx.params;
+
+    try {
+      const products = await Product.find(id).limit(parseInt(count));
+      ctx.body = products;
+    } catch (err) {
+      console.error(err.message);
+      ctx.body = { msg: err.message };
+    }
+  }
+
+  /**
    * Получить один продукт по иденьтификатору.
    * @param {*} ctx
-   * @param {*} next
    */
-  async getOne(ctx, next) {
+  async getOne(ctx) {
     const { id } = ctx.params;
 
     try {
@@ -36,9 +50,8 @@ class ProductsController {
   /**
    * Создать новый продукт в базе данных.
    * @param {*} ctx
-   * @param {*} next
    */
-  async create(ctx, next) {
+  async create(ctx) {
     const product = new Product(ctx.request.body);
 
     try {
@@ -53,9 +66,8 @@ class ProductsController {
   /**
    * Отредактировать один продукт в базе данных по иденьтификатору.
    * @param {*} ctx
-   * @param {*} next
    */
-  async update(ctx, next) {
+  async update(ctx) {
     const { id } = ctx.params;
 
     try {
@@ -70,9 +82,8 @@ class ProductsController {
   /**
    * Удалить один продукт из базы данных по иденьтификатору.
    * @param {*} ctx
-   * @param {*} next
    */
-  async delete(ctx, next) {
+  async delete(ctx) {
     const { id } = ctx.params;
 
     try {
