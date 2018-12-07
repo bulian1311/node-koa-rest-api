@@ -7,7 +7,7 @@ class ProducerController {
    */
   async getAll(ctx) {
     try {
-      const producers = Producer.find();
+      const producers = await Producer.find();
       ctx.body = producers;
     } catch (err) {
       console.error(err.message);
