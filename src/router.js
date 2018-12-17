@@ -3,6 +3,7 @@ const jwt = require('koa-jwt');
 
 const HomeController = require('./controllers/home');
 const ProductController = require('./controllers/product');
+const CategoryController = require('./controllers/category');
 const TagController = require('./controllers/tag');
 const ProducerController = require('./controllers/producer');
 const config = require('./config');
@@ -15,6 +16,9 @@ router.get('/', HomeController.home);
 router.get('/product/list', ProductController.getAll);
 router.get('/product/list/:count', ProductController.getSome);
 router.get('/product/:id', ProductController.getOne);
+
+router.get('/category/list', CategoryController.getAll);
+router.get('/category/:id', CategoryController.getOne);
 
 router.get('/tag/list', TagController.getAll);
 router.get('/tag/:id', TagController.getOne);
@@ -30,6 +34,11 @@ router.post('/product', ProductController.create);
 router.post('/product/list', ProductController.createMany);
 router.put('/product/:id', ProductController.update);
 router.delete('/product/:id', ProductController.delete);
+
+router.post('/category', CategoryController.create);
+router.post('/category/list', CategoryController.createMany);
+router.put('/category/:id', CategoryController.update);
+router.delete('/category/:id', CategoryController.delete);
 
 router.post('/tag', TagController.create);
 router.post('/tag/list', TagController.createMany);
