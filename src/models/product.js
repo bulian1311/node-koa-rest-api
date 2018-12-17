@@ -4,9 +4,7 @@ const { Schema } = mongoose;
 const productSchema = Schema({
   title: { type: String },
 
-  shortDescription: { type: String },
-
-  fullDescription: { type: String },
+  description: { type: String },
 
   price: { type: String },
 
@@ -14,9 +12,11 @@ const productSchema = Schema({
 
   images: [{ url: { type: String }, alt: String }],
 
-  producer: { url: String },
+  producer: { type: Schema.Types.ObjectId, ref: 'producer' },
 
-  tags: [{ title: String }]
+  caegory: { type: Schema.Types.ObjectId, ref: 'category' },
+
+  tags: [{ type: Schema.Types.ObjectId, ref: 'tag' }]
 });
 
 module.exports = mongoose.model('product', productSchema);
