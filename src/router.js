@@ -36,7 +36,7 @@ router.put('/product/:id', ProductController.update);
 router.delete('/product/:id', ProductController.delete);
 
 router.post('/category', CategoryController.create);
-router.post('/category/list', CategoryController.createMany);
+router.post('/category/list', CategoryController.create);
 router.put('/category/:id', CategoryController.update);
 router.delete('/category/:id', CategoryController.delete);
 
