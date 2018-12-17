@@ -1,4 +1,7 @@
 const Product = require('../models/product');
+const Category = require('../models/category');
+const Producer = require('../models/producer');
+const Tag = require('../models/tag');
 
 class ProductsController {
   /**
@@ -52,7 +55,42 @@ class ProductsController {
    * @param {*} ctx
    */
   async create(ctx) {
-    const product = new Product(ctx.request.body);
+    const {
+      title,
+      description,
+      price,
+      url,
+      images,
+      specifications
+    } = ctx.request.body;
+
+    let producer = null;
+    let category = null;
+    let tags = [];
+
+    try {
+      producer = await Producer.findOrCreate(ctx.request.body.producer);
+      category = await Category.findOrCreate(ctx.request.body.category);
+
+      for (let i = 0; i < ctx.request.body.tags.length; i++) {
+        let t = await Tag.findOrCreate(ctx.request.body.tags[i]);
+        tags.push(t.doc);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+
+    const product = new Product({
+      title,
+      description,
+      price,
+      url,
+      images,
+      specifications,
+      producer: producer.doc,
+      category: category.doc,
+      tags
+    });
 
     try {
       await product.save();

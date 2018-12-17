@@ -12,9 +12,11 @@ const productSchema = Schema({
 
   images: [{ url: { type: String }, alt: String }],
 
+  specifications: { type: Map, of: String },
+
   producer: { type: Schema.Types.ObjectId, ref: 'producer' },
 
-  caegory: { type: Schema.Types.ObjectId, ref: 'category' },
+  category: { type: Schema.Types.ObjectId, ref: 'category' },
 
   tags: [{ type: Schema.Types.ObjectId, ref: 'tag' }]
 });
