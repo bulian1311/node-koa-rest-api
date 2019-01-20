@@ -1,4 +1,4 @@
-# MagMer RestFull API
+# Magmer API
 
 ## Быстрый старт
 
@@ -57,7 +57,10 @@ POST /product
 #   "description": "Описание продукта",
 #   "price": "123",
 #   "url": "http://test.com/product/1",
-#   "images": [{"url": "http://test.com/image/1"}]
+#   "images": [{"url": "http://test.com/image/1"}],
+#   "specifications": {"key": "value"}
+#   "category": "Название категории",
+#   "producer": "Имя поставщика"
 # }
 ```
 

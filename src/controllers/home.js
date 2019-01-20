@@ -28,7 +28,10 @@ class Home {
               description: 'string',
               price: 'string',
               url: 'string',
-              images: [{ url: 'string' }]
+              images: [{ url: 'string' }],
+              specifications: { key: 'value' },
+              category: 'string',
+              tag: 'string'
             }
           },
           {
