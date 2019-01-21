@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "test": "SET \"NODE_ENV=test\" && mocha"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,10 @@
   },
   "homepage": "https://gitlab.com/bulian1311/magmer-api#readme",
   "devDependencies": {
-    "nodemon": "^1.18.5"
+    "expect": "^23.6.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.5",
+    "supertest": "^3.4.1"
   },
   "dependencies": {
     "@koa/cors": "^2.2.2",
